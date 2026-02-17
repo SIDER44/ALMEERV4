@@ -1,0 +1,19 @@
+# Bot Configuration
+BOT_NAME=ALMEERV4
+OWNER_NUMBER=254XXXXXXXXX
+PREFIX=.
+SESSION_NAME=session
+MODE=public
+AUTO_READ=true
+AUTO_TYPING=true
+ANTI_LINK=true
+WELCOME_MSG=true
+NSFW=false
+
+# API Keys
+OPENAI_API_KEY=your_openai_api_key
+WEATHER_API_KEY=your_openweather_api_key
+REMOVEBG_API_KEY=your_removebg_key
+
+# Server Configuration
+PORT=3000
