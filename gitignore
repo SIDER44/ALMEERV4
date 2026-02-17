@@ -1,0 +1,45 @@
+# Dependencies
+node_modules/
+package-lock.json
+yarn.lock
+
+# Environment
+.env
+.env.local
+.env.production
+
+# Session
+session/
+creds.json
+auth_info/
+
+# Database
+*.json
+!package.json
+!config.json
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Temp files
+media/temp/
+*.tmp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Runtime
+.pm2/
+logs/
+*.pid
+*.seed
+*.pid.lock
