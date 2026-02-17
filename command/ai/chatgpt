@@ -1,0 +1,54 @@
+const axios = require('axios');
+
+module.exports = {
+  name: 'ai',
+  aliases: ['chatgpt', 'gpt'],
+  description: 'Chat with AI',
+  usage: '.ai (your message)',
+  cooldown: 10,
+  
+  async execute(sock, msg, args, { from, config }) {
+    if (!args[0]) {
+      return await sock.sendMessage(from, { 
+        text: '❌ Please provide a message!' 
+      }, { quoted: msg });
+    }
+
+    const prompt = args.join(' ');
+
+    try {
+      await sock.sendMessage(from, { text: '💭 *Thinking...*' }, { quoted: msg });
+
+      // Using free API (you can replace with OpenAI)
+      const response = await axios.post('https://api-inference.huggingface.co/models/microsoft/DialoGPT-medium', {
+        inputs: prompt
+      }, {
+        headers: {
+          'Authorization': `Bearer ${config.apis.openai || 'dummy'}`
+        }
+      });
+
+      let reply = response.data[0]?.generated_text || 'I cannot process that right now.';
+      
+      // Format response
+      reply = `🤖 *AI Response*\n\n${reply}\n\n_Powered by ALMEERV4_`;
+
+      await sock.sendMessage(from, { text: reply }, { quoted: msg });
+      
+    } catch (error) {
+      console.error('AI error:', error);
+      
+      // Fallback response
+      const fallbackResponses = [
+        "I'm here to help! What would you like to know?",
+        "Interesting question! Can you tell me more?",
+        "That's a good point. Let me think about it.",
+        "I understand. Is there anything specific you'd like to discuss?"
+      ];
+      
+      await sock.sendMessage(from, { 
+        text: `🤖 *AI Response*\n\n${fallbackResponses[Math.floor(Math.random() * fallbackResponses.length)]}\n\n_Powered by ALMEERV4_`
+      }, { quoted: msg });
+    }
+  }
+};
