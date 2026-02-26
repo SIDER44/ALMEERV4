@@ -1,4 +1,4 @@
-module.exports = [
+export default [
   { command: 'kick', groupOnly: true,
     execute: async ({ sock, msg, from }) => {
       const m = msg.message?.extendedTextMessage?.contextInfo?.mentionedJid || [];
