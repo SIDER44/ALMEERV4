@@ -1,4 +1,4 @@
-const axios = require('axios');
+import axios from 'axios';
 const fetch = url => axios.get(url, { timeout: 20000 }).then(r => r.data);
 
 module.exports = [
