@@ -1,6 +1,6 @@
 const { exec } = require('child_process');
 
-module.exports = [
+export default [
   { command: 'shutdown', ownerOnly: true,
     execute: async ({ sock, msg, from }) => {
       await sock.sendMessage(from, { text: '🔴 Shutting down...' }, { quoted: msg });
