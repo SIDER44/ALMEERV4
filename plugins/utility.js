@@ -3,7 +3,7 @@ const { formatBytes, formatRuntime } = require('../lib/utils');
 const os = require('os');
 const startTime = Date.now();
 
-module.exports = [
+export default [
   { command: 'menu',
     execute: async ({ sock, msg, from, args, db, config }) => {
       const n = parseInt(args[0]);
