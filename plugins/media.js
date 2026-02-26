@@ -1,4 +1,4 @@
-const axios = require('axios');
+import axios from 'axios';
 const { isUrl } = require('../lib/utils');
 const fetch = url => axios.get(url, { timeout: 30000 }).then(r => r.data);
 
