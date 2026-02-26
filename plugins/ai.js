@@ -1,4 +1,4 @@
-const axios = require('axios');
+import axios from 'axios';
 const gpt = async (p) => {
   const r = await axios.get(`https://api.siputzx.my.id/api/ai/chatgpt?prompt=${encodeURIComponent(p)}`, { timeout: 30000 });
   return r.data?.data || r.data?.result || 'No response.';
