@@ -1,4 +1,4 @@
-const axios = require('axios');
+import axios from 'axios';
 const { randomItem } = require('../lib/utils');
 
 const jokes = ["Why do programmers prefer dark mode? Because light attracts bugs! 🐛","How many programmers to change a bulb? None, it's a hardware problem! 💡","Why did the dev quit? Didn't get arrays! 😄"];
